@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "image-uploader",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "image uploader from drog &amp; drop &amp; copy markdown link",
+    "description": "The description of the application"
+  }
+}
