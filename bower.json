@@ -2,6 +2,8 @@
   "name": "image-uploader",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "dropzone": "^4.3.0"
+  },
   "devDependencies": {}
 }
