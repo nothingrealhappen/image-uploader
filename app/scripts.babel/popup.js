@@ -1,3 +1,6 @@
 'use strict';
 
-console.log('\'Allo \'Allo! Popup');
+chrome.tabs.create({
+  active: true,
+  url: 'index.html',
+});

@@ -10,7 +10,22 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1>'Allo, 'Allo!</h1>
+    <style>
+      body {
+        text-align: center;
+      }
+      a {
+        color: #222;
+        display: inline-block;
+        background-color: #fff;
+        margin-top: 10px;
+      }
+    </style>
+    <label for="key">
+      填写密钥：
+    </label>
+    <input type="text" id="token">
+    <button id="save">保存</button>
 
     <!-- build:js scripts/options-vendor.js -->
     <!-- bower:js -->
