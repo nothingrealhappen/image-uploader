@@ -1,3 +1,51 @@
 body {
   padding: 20px;
 }
+
+.status {
+  display: none;
+  text-align: center;
+}
+
+.status.active {
+  display: block;
+}
+
+.url {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+  border: 0;
+  outline: none;
+}
+
+.token-setting {
+  margin-top: 5px;
+}
+
+.upload-body {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0;
+}
+
+.upload-wrapper {
+  max-width: 60vw;
+}
+
+form.dropzone {
+  width: 500px;
+  height: 500px;
+  border: 2px dashed rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.dropzone .dz-message {
+  font-size: 20px;
+  color: #aeaeae;
+}

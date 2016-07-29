@@ -11,10 +11,14 @@
     <link href="styles/main.css" rel="stylesheet">
     <!-- endbuild -->
   </head>
-  <body>
-    <form class="dropzone" id="uploader">
-      <input type="text" name="token" style="display: none" />
-    </form>
+  <body class="upload-body">
+    <div class="upload-wrapper">
+      <form class="dropzone" id="uploader">
+        <div class="dz-message">拖拽或点击上传图片</div>
+      </form>
+      <input type="url" class="url" id="url" />
+      <div id="status" class="status">已复制</div>
+    </div>
 
     <!-- build:js scripts/options-vendor.js -->
     <!-- bower:js -->
@@ -22,7 +26,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js scripts/popup.js -->
+    <!-- build:js scripts/index.js -->
     <script src="scripts/index.js"></script>
     <!-- endbuild -->
   </bod>
