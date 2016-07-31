@@ -3,20 +3,52 @@ body {
 }
 
 .status {
-  display: none;
   text-align: center;
 }
 
-.status.active {
+.result {
+  display: none;
+}
+
+.result.active {
   display: block;
 }
 
-.url {
+.result-input {
   text-align: center;
-  margin-top: 20px;
-  width: 100%;
   border: 0;
   outline: none;
+  flex-grow: 1;
+  padding: 0 5px;
+}
+
+.result-item label {
+  display: block;
+  color: #fff;
+}
+
+.input-btn {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2px;
+  line-height: 30px;
+}
+
+.result-item a {
+  text-decoration: none;
+  background: #cecece;
+  color: #484848;
+  padding: 0 10px;
+  border-radius: 0 2px 2px 0;
+}
+
+.result-item a:hover {
+  background: #bbb;
+}
+
+.result-item {
+  margin-top: 20px;
 }
 
 .token-setting {
@@ -24,7 +56,8 @@ body {
 }
 
 .upload-body {
-  background-color: #fff;
+  font-family: 'Helvetica Neue', 'Helvetica','Hiragino Sans GB', 'Microsoft YaHei';
+  background-color: #26a9e1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,12 +70,13 @@ body {
 }
 
 form.dropzone {
-  width: 500px;
-  height: 500px;
-  border: 2px dashed rgba(0,0,0,0.3);
+  width: 50vh;
+  height: 50vh;
+  border: 2px dashed rgba(255,255,255,0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-clip: padding-box;
 }
 
 form.dropzone .dz-message {

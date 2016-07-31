@@ -26,7 +26,7 @@ function onReady(token, domain) {
     url: 'http://upload.qiniu.com',
     method: 'POST',
     uploadMultiple: false,
-    previewTemplate: '<div></div>',
+    previewTemplate: '<div><img data-dz-thumbnail></div>',
     sending: (file, xhr, fd) => {
       const d = new Date();
       fd.append('token', token);
@@ -34,8 +34,10 @@ function onReady(token, domain) {
     },
     success: (f, res) => {
       const url = `http://${domain}/${res.key}`;
+      const markdown = `![${f.name}](${url})`;
       $url.value = url;
-      copyURL();
+      $('#markdown').value = markdown;
+      copyURL($url);
     },
     error: e => {
       debugger;
@@ -44,9 +46,17 @@ function onReady(token, domain) {
   });
 }
 
-function copyURL() {
-  $url.focus();
+$('#result').addEventListener('click', e => {
+  if (!/^a$/i.test(e.target.tagName)) return;
+  e.preventDefault();
+  const target = e.target.dataset.target;
+  copyURL($(target));
+  e.target.innerHTML = '已复制';
+});
+
+function copyURL($dom) {
+  $('.result').classList.add('active');
+  $dom.focus();
   document.execCommand('selectAll');
   document.execCommand('copy');
-  $('#status').classList.add('active');
 }
