@@ -13,11 +13,25 @@
   </head>
   <body class="upload-body">
     <div class="upload-wrapper">
-      <form class="dropzone" id="uploader">
+      <form class="dropzone" id="uploader" action="./">
         <div class="dz-message">拖拽或点击上传图片</div>
       </form>
-      <input type="url" class="url" id="url" />
-      <div id="status" class="status">已复制</div>
+      <div class="result" id="result">
+        <div class="result-item">
+          <label for="url">图片地址：</label>
+          <div class="input-btn">
+            <input type="url" class="result-input" id="url" />
+            <a href="#" data-target="#url">已复制</a>
+          </div>
+        </div>
+        <div class="result-item">
+          <label for="markdown">Markdown：</label>
+          <div class="input-btn">
+            <input type="url" class="result-input" id="markdown" />
+            <a href="#" data-target="#markdown">复制</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- build:js scripts/options-vendor.js -->
@@ -29,5 +43,5 @@
     <!-- build:js scripts/index.js -->
     <script src="scripts/index.js"></script>
     <!-- endbuild -->
-  </bod>
+  </body>
 </html>
