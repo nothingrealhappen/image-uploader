@@ -19,6 +19,8 @@ chrome.storage.sync.get({
   onReady(d.token, d.domain);
 });
 
+const transDomain = str => /^https?:\/\//.test(str) ? str : `http://${str}`;
+
 
 function onReady(token, domain) {
   const dropzone = new Dropzone('#uploader', {
@@ -33,7 +35,7 @@ function onReady(token, domain) {
       fd.append('key', `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}/${file.name}`);
     },
     success: (f, res) => {
-      const url = `http://${domain}/${res.key}`;
+      const url = `${transDomain(domain)}/${res.key}`;
       const markdown = `![${f.name}](${url})`;
       $url.value = url;
       $('#markdown').value = markdown;
