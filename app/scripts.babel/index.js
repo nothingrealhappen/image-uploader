@@ -7,6 +7,19 @@ const $ = x => document.querySelector(x);
 const $uploader = $('#uploader');
 const $url = $('#url');
 
+function getUploadUrl(uploadToken, cb) {
+  try {
+    const [ak, , encodeBucket] = uploadToken.split(':');
+    const bucket = JSON.parse(window.atob(encodeBucket)).scope;
+    const url = `https://uc.qbox.me/v1/query?ak=${ak}&bucket=${bucket}`;
+    fetch(url).then(res => res.json()).then(data => {
+      cb(data.http.up[0]);
+    });
+  } catch(e) {
+    alert(`token 无效：${e.message}`);
+  }
+}
+
 chrome.storage.sync.get({
   token: null,
   domain: null,
@@ -16,16 +29,16 @@ chrome.storage.sync.get({
     return;
   }
 
-  onReady(d.token, d.domain);
+  getUploadUrl(d.token, uploadUrl => onReady(d.token, d.domain, uploadUrl));
 });
 
 const transDomain = str => /^https?:\/\//.test(str) ? str : `http://${str}`;
 
 
-function onReady(token, domain) {
+function onReady(token, domain, uploadUrl) {
   const dropzone = new Dropzone('#uploader', {
     maxFiles: 1,
-    url: 'http://upload.qiniu.com',
+    url: uploadUrl,
     method: 'POST',
     uploadMultiple: false,
     previewTemplate: '<div><img data-dz-thumbnail></div>',
